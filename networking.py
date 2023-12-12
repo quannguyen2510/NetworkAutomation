@@ -1,12 +1,12 @@
 
 from netmiko import ConnectHandler
 
-f = open('ip_list.txt')
+f = open('switch_ip_list.txt')
 ip_list = f.read().split("\n")
 
 all_devices = []
 
-for ip in  ip_list:
+for ip in ip_list:
     R = {
         "device_type" : "cisco_ios",
         "ip" : ip,
@@ -16,9 +16,9 @@ for ip in  ip_list:
     all_devices.append(R)
 
 
-for router in all_devices:
-    net_connect = ConnectHandler(**router)
-    output = net_connect.send_command("show ip int brief")
+for switch in all_devices:
+    net_connect = ConnectHandler(**switch)
+    output = net_connect.send_command("show run | i hostname")
 
     print(output)
     print('-------')
