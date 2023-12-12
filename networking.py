@@ -10,7 +10,8 @@ for ip in ip_list:
         "device_type": "cisco_ios",
         "ip": ip,
         "username": "root",
-        "password": "quan"
+        "password": "quan",
+        "port": 23
     }
     all_devices.append(R)
 
