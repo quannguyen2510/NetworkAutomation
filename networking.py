@@ -11,7 +11,7 @@ for ip in ip_list:
         "ip": ip,
         "username": "root",
         "password": "quan",
-        "port": 23
+        "port": 22
     }
     all_devices.append(R)
 
