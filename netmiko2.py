@@ -15,8 +15,7 @@ def ssh_into_device(ip_address):
             # Perform operations on the device here if needed
             print(f"Successfully connected to {ip_address}!")
             # Example: Send a command
-            output = ssh_conn.send_command("show version")
-            print("Output of 'show version':")
+            output = ssh_conn.send_command("show run | i hostname")
             print(output)
 
     except Exception as e:
