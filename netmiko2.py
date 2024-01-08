@@ -1,12 +1,12 @@
 from netmiko import ConnectHandler
 
-def ssh_into_device(ip_address, username, password, device_type='cisco_ios'):
+def ssh_into_device(ip_address):
     # Define the device parameters
     device = {
-        'device_type': device_type,
+        'device_type': cisco_ios,
         'ip': ip_address,
-        'username': username,
-        'password': password,
+        'username': root,
+        'password': quan,
     }
 
     try:
@@ -26,4 +26,4 @@ def ssh_into_device(ip_address, username, password, device_type='cisco_ios'):
 with open('switch_ip_list.txt', 'r') as file:
     for ip_address in file:
         ip_address = ip_address.strip()  # Remove leading/trailing whitespaces
-        ssh_into_device(ip_address, "your_username", "your_password")
+        ssh_into_device(ip_address)
