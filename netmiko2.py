@@ -3,10 +3,10 @@ from netmiko import ConnectHandler
 def ssh_into_device(ip_address):
     # Define the device parameters
     device = {
-        'device_type': cisco_ios,
+        'device_type': 'cisco_ios',
         'ip': ip_address,
-        'username': root,
-        'password': quan,
+        'username':'root',
+        'password':'quan',
     }
 
     try:
