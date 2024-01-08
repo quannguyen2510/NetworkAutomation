@@ -5,8 +5,8 @@ def ssh_into_device(ip_address):
     device = {
         'device_type': 'cisco_ios',
         'ip': ip_address,
-        'username': root,
-        'password': quan,
+        'username': 'root',
+        'password': 'quan',
     }
 
     try:
