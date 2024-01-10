@@ -15,8 +15,13 @@ def ssh_into_device(ip_address):
             # Perform operations on the device here if needed
             print(f"Successfully connected to {ip_address}!")
             # Example: Send a command
-            output = ssh_conn.send_command("show run | i hostname")
-            print(output)
+            fullhostname = ssh_conn.send_command("show run | i hostname")
+            hostname = fullhostname.split()[-1]
+            print(hostname)
+            output = ssh_conn.send_command("show run")
+            file_name = f"{hostname}_config.txt"
+            with open(file_name, 'w') as config_file:
+                config_file.write(output)
         ssh_conn.disconnect()
     except Exception as e:
         print(f"Error: {str(e)}")
