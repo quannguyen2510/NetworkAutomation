@@ -5,8 +5,8 @@ def ssh_into_device(ip_address):
     device = {
         'device_type': 'cisco_ios',
         'ip': ip_address,
-        'username':'root',
-        'password':'quan',
+        'username': 'root',
+        'password': 'quan',
     }
 
     try:
@@ -20,9 +20,14 @@ def ssh_into_device(ip_address):
         ssh_conn.disconnect()
     except Exception as e:
         print(f"Error: {str(e)}")
-
-# Replace 'your_username' and 'your_password' with the actual credentials
-with open('switch_ip_list.txt', 'r') as file:
-    for ip_address in file:
-        ip_address = ip_address.strip()  # Remove leading/trailing whitespaces
-        ssh_into_device(ip_address)
+file_paths = ['switch_ip_list.txt', 'router_ip_list.txt']
+for file_path in file_paths:
+    try:
+        with open(file_path, 'r') as file:
+            for ip_address in file:
+                ip_address = ip_address.strip()  # Remove leading/trailing whitespaces
+                ssh_into_device(ip_address)
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+    except Exception as e:
+        print(f"Error: {str(e)}")
