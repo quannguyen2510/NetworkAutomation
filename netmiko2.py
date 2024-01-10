@@ -22,6 +22,7 @@ def ssh_into_device(ip_address):
             file_name = f"{hostname}_config.txt"
             with open(file_name, 'w') as config_file:
                 config_file.write(output)
+            print(f"Successfully stored configurations of {hostname}")
         ssh_conn.disconnect()
     except Exception as e:
         print(f"Error: {str(e)}")
