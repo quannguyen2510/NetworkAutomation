@@ -17,7 +17,7 @@ def ssh_into_device(ip_address):
             # Example: Send a command
             output = ssh_conn.send_command("show run | i hostname")
             print(output)
-
+        ssh_conn.disconnect()
     except Exception as e:
         print(f"Error: {str(e)}")
 
