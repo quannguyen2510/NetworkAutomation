@@ -1,0 +1,30 @@
+192.168.200.1 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.200.1: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
+192.168.60.5 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.60.5: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
+192.168.200.10 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.200.10: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
+192.168.60.6 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.60.6: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
+192.168.60.7 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.60.7: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
+192.168.60.8 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: user@192.168.60.8: Permission denied (publickey,keyboard-interactive,password).",
+    "unreachable": true
+}
