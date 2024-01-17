@@ -1,30 +1,25 @@
-192.168.200.1 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.200.1: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
-192.168.60.5 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.60.5: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
-192.168.200.10 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.200.10: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
-192.168.60.6 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.60.6: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
-192.168.60.7 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.60.7: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
-192.168.60.8 | UNREACHABLE! => {
-    "changed": false,
-    "msg": "Failed to connect to the host via ssh: user@192.168.60.8: Permission denied (publickey,keyboard-interactive,password).",
-    "unreachable": true
-}
+ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/user/MyGit/NetworkAutomation/ios_vlan.yml': line 24, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+        state: present
+      with_items: "{{ vlans }}"
+      ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
