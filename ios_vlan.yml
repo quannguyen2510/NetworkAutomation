@@ -1,24 +1,32 @@
 ---
 - name: Create VLANs on AccessSwitches
   hosts: AccessSwitches
-  gather_facts: no
-  become: yes
-
-  vars:
-    vlans:
-      - id: 10
-        name: "PC Kinh doanh"
-      - id: 20
-        name: "PC Ky Thuat"
-      - id: 30
-        name: "Printer"
-      - id: 40
-        name: "IP Phong"
-
+  gather_facts: false
   tasks:
-    - name: Create VLANs
-      ios_vlan:
-        vlan_id: "{{ item.id }}"
-        name: "{{ item.name }}"
-        state: present
-      with_items: "{{ vlans }}"
+    - name: Create VLAN 10
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 10
+            name: "PC Kinh doanh"
+        state: merged
+
+    - name: Create VLAN 20
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 20
+            name: "PC Ky Thuat"
+        state: merged
+
+    - name: Create VLAN 30
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 30
+            name: "Printer"
+        state: merged
+
+    - name: Create VLAN 40
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 40
+            name: "IP Phong"
+        state: merged
