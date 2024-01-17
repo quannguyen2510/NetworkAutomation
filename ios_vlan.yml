@@ -1,0 +1,24 @@
+---
+- name: Create VLANs on AccessSwitches
+  hosts: AccessSwitches
+  gather_facts: no
+  become: yes
+
+  vars:
+    vlans:
+      - id: 10
+        name: "PC Kinh doanh"
+      - id: 20
+        name: "PC Ky Thuat"
+      - id: 30
+        name: "Printer"
+      - id: 40
+        name: "IP Phong"
+
+  tasks:
+    - name: Create VLANs
+      ios_vlan:
+        vlan_id: "{{ item.id }}"
+        name: "{{ item.name }}"
+        state: present
+      with_items: "{{ vlans }}"
