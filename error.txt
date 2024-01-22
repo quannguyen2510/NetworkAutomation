@@ -1,6 +1,10 @@
-An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'
-fatal: [AccessSw2]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'"}
-An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'
-fatal: [AccessSw3]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'"}
-An exception occurred during task execution. To see the full traceback, use -vvv. The error was: ansible.errors.AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'
-fatal: [AccessSw1]: FAILED! => {"changed": false, "msg": "AnsibleUndefinedVariable: 'dict object' has no attribute 'vlans'. 'dict object' has no attribute 'vlans'"}
+athered_vlans": {
+        "changed": false,
+        "failed": false,
+        "gathered": [
+            {
+                "mtu": 1500,
+                "name": "default",
+                "shutdown": "disabled",
+                "state": "active",
+                "vlan_id": 1
