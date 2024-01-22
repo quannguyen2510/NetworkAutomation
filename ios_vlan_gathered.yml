@@ -1,0 +1,12 @@
+---
+- name: Show VLAN configurations
+  hosts: AccessSwitches
+  gather_facts: false
+  tasks:
+    - name: Gather VLANs configurations
+      cisco.ios.ios_vlans:
+        state: gathered
+      register: output
+    - name: Print output
+      debug:
+        var: output
