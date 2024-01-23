@@ -1,0 +1,9 @@
+#VLAN Config 
+
+{% for vlan in gathered_vlans.gathered %}
+
+vlan {{ vlan.vlan_id }}
+  name {{ vlan.name }}
+  state {{ vlan.state | default('active') }}
+
+{% endfor %}

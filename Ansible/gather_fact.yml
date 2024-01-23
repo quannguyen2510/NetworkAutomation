@@ -1,0 +1,12 @@
+---
+- name: Gather facts
+  hosts: CoreSwitches
+  gather_facts: false
+
+  tasks:
+  - name: Gather facts
+    cisco.ios.ios_facts:
+      gather_subset: all
+  - name: Show facts
+    debug:
+      msg: " {{ansible_net_all_ipv4_addresses}} "
