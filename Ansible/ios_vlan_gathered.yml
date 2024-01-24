@@ -1,0 +1,16 @@
+---
+- name: Show VLAN configurations
+  hosts: Switches
+  gather_facts: false
+  tasks:
+    - name: Gather VLANs configurations
+      cisco.ios.ios_vlans:
+        state: gathered
+      register: gathered_vlans
+
+    - name: Save
+      template:
+        src: vlan_config_template.j2
+        dest: ~/MyGit/NetworkAutomation/VLANs_config_{{inventory_hostname}}
+      vars:
+        gathered_vlans: "{{gathered_vlans}}"

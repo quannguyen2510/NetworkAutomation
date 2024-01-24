@@ -1,0 +1,37 @@
+---
+- name: Create VLANs on AccessSwitches
+  hosts: AccessSwitches
+  gather_facts: false
+  tasks:
+    - name: Create VLAN 10
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 10
+            name: "PC Kinh doanh"
+            state: active
+            shutdown: disabled
+
+    - name: Create VLAN 20
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 20
+            name: "PC Ky Thuat"
+            state: active
+            shutdown: disabled
+
+    - name: Create VLAN 30
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 30
+            name: "Printer"
+            state: active
+            shutdown: disabled
+
+    - name: Create VLAN 40
+      cisco.ios.ios_vlans:
+        config:
+          - vlan_id: 40
+            name: "IP Phone"
+            state: active
+            shutdown: disabled
+        state: merged
