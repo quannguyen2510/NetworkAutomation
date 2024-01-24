@@ -3,13 +3,14 @@
   hosts: all
   gather_facts: no
   tasks:
-    - name: Display interface information on {{ hostvars[inventory_hostname]['ansible_hostname'] }}
-      ios_command:
-        commands: "show int"
-        register: output
+    - name: Get interface information from {{ hostvars[inventory_hostname]['ansible_hostname'] }}
+      ios_interface_info:
+        device: "{{ inventory_hostname }}"
+        state: present
+      register: output
       delegate_to: "{{ inventory_hostname }}"
       become: true
 
     - name: Print interface information
       debug:
-        var: output.stdout_lines
+        var: output.results
