@@ -1,0 +1,65 @@
+---
+
+- name: Get information all interfaces of Cisco device
+  hosts: Switches
+  gather_facts: false
+
+  tasks:
+  - name: Thu thập thông tin tất các cổng trên thiết bị Cisco và lưu vào các biến tương ứng với từng cổng
+    cisco.ios.ios_facts:
+      gather_subset: all
+    register: results
+  - name: In kết quả task trên chỉ in các thông số cần thiết
+    ansible.builtin.debug:
+      msg: "{{ results.ansible_facts.ansible_net_interfaces }}"
+  - name: Save {{ results.ansible_facts.ansible_net_interfaces }} into a file name as "Interfaces_{{inventory_hostname}}.txt"
+    ansible.builtin.copy:
+      content: "{{ results.ansible_facts.ansible_net_interfaces }}"
+      dest: ./interfaces_{{inventory_hostname}}.txt
+  
+  
+
+
+  
+
+  
+  
+
+  
+  
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+

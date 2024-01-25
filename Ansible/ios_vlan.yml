@@ -10,7 +10,6 @@
             name: "PC Kinh doanh"
             state: active
             shutdown: disabled
-
     - name: Create VLAN 20
       cisco.ios.ios_vlans:
         config:
@@ -18,7 +17,6 @@
             name: "PC Ky Thuat"
             state: active
             shutdown: disabled
-
     - name: Create VLAN 30
       cisco.ios.ios_vlans:
         config:
@@ -34,4 +32,8 @@
             name: "IP Phone"
             state: active
             shutdown: disabled
-        state: merged
+    
+
+
+
+      
