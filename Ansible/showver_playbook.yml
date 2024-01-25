@@ -13,3 +13,5 @@
   - name: Show facts
     debug:
       msg: "{{ ansible_facts.net_version }}"
+
+
