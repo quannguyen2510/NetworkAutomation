@@ -1,0 +1,10 @@
+#Interfaces
+
+{% for interface in output.ansible_facts.ansible_net_interfaces %}
+
+Interfaces {{ interface.key() }}
+  ipv4 {{ interface.key().ipv4.value() }}
+  lineprotocal {{ interface.key().lineprotocal.value() }}
+  operstatus {{ interface.key().operstatus.value() }}
+
+{% endfor %}
