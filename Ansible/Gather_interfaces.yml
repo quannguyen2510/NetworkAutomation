@@ -8,9 +8,13 @@
   - name: Thu thập thông tin tất các cổng trên thiết bị Cisco
     cisco.ios.ios_facts:
       gather_subset:
-      - interfaces
+        - interfaces
     register: output
-  - name: In ra
+  - name: In output
     ansible.builtin.debug:
       msg: "{{ output }}"
+  - name: Tạo file theo template
+    ansible.builtin.template:
+      src: ./templates/interfaces_templates.j2
+      dest: ./interfaces/{{inventory_hostname}}_interfaces.txt
 
