@@ -1,0 +1,87 @@
+---
+- name: Access Port Config
+  hosts: AccessSwitches
+  gather_facts: false
+
+  tasks:
+    - name: Use cisco.ios.ios_l2_interfaces config mode access vlan 10 for interface e1/0
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: e1/0
+            mode: access
+            access:
+              vlan: 10
+        state: merged
+    - name: Config mode access vlan 20 for interface e1/1
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: e1/1
+            mode: access
+            access:
+              vlan: 20
+        state: merged
+    - name: Config mode access vlan 30 for interface e1/2
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: e1/2
+            mode: access
+            access:
+              vlan: 30
+        state: merged
+    - name: config mode access vlan 40 for interface e1/3
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: e1/3
+            mode: access
+            access:
+              vlan: 40
+        state: merged
+  
+    - name: Use cisco.ios.ios_l2_interfaces config "port-channel1" mode "trunk" with "trunking encapsulation dot1q"
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: port-channel1
+            mode: trunk
+            trunk:
+              encapsulation: dot1q
+        state: merged
+        
+    - name: Use cisco.ios.ios_l2_interfaces config "port-channel2" mode "trunk" with "trunking encapsulation dot1q"
+      cisco.ios.ios_l2_interfaces:
+        config:
+          - name: port-channel 2
+            mode: trunk
+            trunk:
+              encapsulation: dot1q
+        state: merged
+    
+    - name: Gather facts for l2 interfaces
+      cisco.ios.ios_l2_interfaces:
+        config:
+        state: gathered
+
+    - name: Print upon variable gathered
+      ansible.builtin.debug:
+        msg: "{{gathered}}"
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
