@@ -55,14 +55,20 @@
               encapsulation: dot1q
         state: merged
     
-    - name: Gather facts for l2 interfaces
+    - name: Gather facts for l2 interfaces and print output
       cisco.ios.ios_l2_interfaces:
         config:
         state: gathered
+      register: gathered
 
-    - name: Print upon variable gathered
+    - name: Print gathered
       ansible.builtin.debug:
-        msg: "{{gathered}}"
+        var: gathered
+    
+
+
+
+
     
     
     
