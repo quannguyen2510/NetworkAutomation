@@ -1,0 +1,68 @@
+#Interfaces
+
+
+Interface Ethernet0/0
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet0/1
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet0/2
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet0/3
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/0
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/1
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/2
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/3
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Port-channel1
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Port-channel2
+  ipv4 []
+  lineprotocal up
+  operstatus up
+
+
+Interface Vlan60
+  ipv4 [{'address': '192.168.60.5', 'subnet': '24'}]
+  lineprotocal up
+  operstatus up
+

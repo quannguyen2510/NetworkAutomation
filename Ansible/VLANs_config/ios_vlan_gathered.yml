@@ -1,0 +1,17 @@
+---
+- name: Show VLAN configurations
+  hosts: Switches
+  gather_facts: false
+  tasks:
+    - name: Gather VLANs configurations
+      cisco.ios.ios_vlans:
+        state: gathered
+      register: gathered_vlans
+    - name: Print out
+      ansible.builtin.debug:
+        msg: "{{gathered_vlans}}"
+    - name: Save
+      template:
+        src: /home/user/MyGit/NetworkAutomation/Ansible/templates/vlan_config_template.j2
+        dest: /home/user/MyGit/NetworkAutomation/Ansible/VLANs_config/VLANs_config_{{inventory_hostname}}
+

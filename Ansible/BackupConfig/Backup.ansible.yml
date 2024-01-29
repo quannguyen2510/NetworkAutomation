@@ -1,0 +1,14 @@
+---
+- name: Backup the network device
+  hosts: Switches
+  gather_facts: false
+
+  tasks:
+  - name: Backup the Cisco Switches
+    cisco.ios.ios_command:
+      commands: show run
+    register: config
+  - name: Save backup configure into a file name as "Backup_config_{{inventory_hostname}}.txt"
+    ansible.builtin.copy:
+      content: "{{config.stdout[0]}}"
+      dest: ~/MyGit/NetworkAutomation/Ansible/BackupConfig/{{inventory_hostname}}.backup.txt
