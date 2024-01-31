@@ -1,0 +1,15 @@
+---
+- name: Config VRRP
+  gather_facts: false
+  hosts: CoreSw1
+  tasks:
+  - name: Config VRRP
+    cisco.ios.ios_config:
+      parents: vlan 10
+      lines:
+        - vrrp 1 ip 192.168.10.3
+          vrrp 1 priority 110
+          vrrp 1 preempt
+          
+
+  

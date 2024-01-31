@@ -1,0 +1,9 @@
+---
+- name: Config DHCP Service CoreSw1
+  hosts: CoreSw1
+  gather_facts: false
+
+  tasks:
+  - name: Config CoreSw1 DHCP Service pool 192.168.10.30-192.168.10.140
+  
+
