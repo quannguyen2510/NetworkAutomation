@@ -1,7 +1,7 @@
 ---
 - name: STP Config
   gather_facts: false
-
+  hosts: Switches
   tasks:
   - name: Config the following command lines
     cisco.ios.ios_config:
@@ -9,7 +9,7 @@
         - spanning-tree mode rapid-pvst
         - spanning-tree portfast edge
         - spanning-tree bpduguard enable 
-      hosts: 
+      delegate_to: 
         - AccessSwitches
         - ServerSw
       parents:
@@ -22,10 +22,10 @@
       lines:
         - spanning-tree vlan 10,30,60 root primary
         - spanning-tree vlan 20,40 root secondary
-      hosts: CoreSw1
+      delegate_to: CoreSw1
   - name: Config the following command lines
     cisco.ios.ios_config:
       lines:
         - spanning-tree vlan 10,30,60 root secondary
         - spanning-tree vlan 20,40 root primary
-      hosts: CoreSw2
+      delegate_to: CoreSw2
