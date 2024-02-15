@@ -1,31 +1,29 @@
 ---
 - name: STP Config
   gather_facts: false
-
+  hosts: AccessSwitches
   tasks:
   - name: Config the following command lines
     cisco.ios.ios_config:
       lines:
-        - spanning-tree mode rapid-pvst
+        - spanning-tree bpduguard enable
         - spanning-tree portfast edge
-        - spanning-tree bpduguard enable 
-      hosts: 
-        - AccessSwitches
-        - ServerSw
-      parents:
-        - interfaces e1/0
-        - interfaces e1/1
-        - interfaces e1/2
-        - interfaces e1/3
-  - name: Config the following command lines
+      parents: "{{item}}"
+    with_items:
+      - interface Ethernet1/0
+      - interface Ethernet1/1
+      - interface Ethernet1/2
+      - interface Ethernet1/3
+  - name: Config the following command lines (2)
     cisco.ios.ios_config:
       lines:
         - spanning-tree vlan 10,30,60 root primary
         - spanning-tree vlan 20,40 root secondary
-      hosts: CoreSw1
-  - name: Config the following command lines
+    delegate_to: CoreSw1
+  - name: Config ... (3)
     cisco.ios.ios_config:
       lines:
         - spanning-tree vlan 10,30,60 root secondary
         - spanning-tree vlan 20,40 root primary
-      hosts: CoreSw2
+    delegate_to: CoreSw2
+

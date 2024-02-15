@@ -1,0 +1,17 @@
+---
+
+- name: Get information all interfaces of Cisco device
+  hosts: Switches
+  gather_facts: false
+
+  tasks:
+  - name: Thu thập thông tin tất các cổng trên thiết bị Cisco
+    cisco.ios.ios_facts:
+      gather_subset:
+        - all
+      gather_network_resources:
+        - l2_interfaces
+    register: output
+  - name: In output
+    ansible.builtin.debug:
+      msg: "{{ output }}"
