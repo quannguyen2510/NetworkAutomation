@@ -1,10 +1,10 @@
 ---
 - name: Backup the network device
-  hosts: Switches
+  hosts: all
   gather_facts: false
 
   tasks:
-  - name: Backup the Cisco Switches
+  - name: Backup the Cisco Devices
     cisco.ios.ios_command:
       commands: show run
     register: config

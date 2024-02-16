@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 1734 bytes
+Current configuration : 2587 bytes
 !
-! Last configuration change at 15:10:18 UTC Sun Jan 28 2024
+! Last configuration change at 07:21:09 UTC Fri Feb 16 2024 by root
 !
 version 15.2
 service timestamps debug datetime msec
@@ -54,46 +54,66 @@ vlan internal allocation policy ascending
 !
 !
 interface Port-channel1
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 interface Port-channel2
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 interface Ethernet0/0
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 1 mode active
 !
 interface Ethernet0/1
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 1 mode active
 !
 interface Ethernet0/2
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 2 mode active
 !
 interface Ethernet0/3
+ switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 2 mode active
 !
 interface Ethernet1/0
- switchport access vlan 60
+ switchport access vlan 10
  switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
 !
 interface Ethernet1/1
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
 !
 interface Ethernet1/2
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
 !
 interface Ethernet1/3
+ switchport access vlan 40
+ switchport mode access
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
 !
 interface Vlan60
  ip address 192.168.60.5 255.255.255.0
@@ -107,6 +127,9 @@ no ip http secure-server
 !
 !
 !
+snmp-server community quan RO
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server host 192.168.60.13 version 2c quan udp-port 161 
 !
 control-plane
 !
