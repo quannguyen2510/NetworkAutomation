@@ -1,7 +1,7 @@
 ---
 
 - name: Get information all interfaces of Cisco device
-  hosts: Switches
+  hosts: all
   gather_facts: false
 
   tasks:
@@ -10,9 +10,6 @@
       gather_subset:
         - interfaces
     register: output
-  - name: In output
-    ansible.builtin.debug:
-      msg: "{{ output }}"
   - name: Tạo file theo template
     ansible.builtin.template:
       src: /home/user/MyGit/NetworkAutomation/Ansible/templates/interfaces_templates.j2
