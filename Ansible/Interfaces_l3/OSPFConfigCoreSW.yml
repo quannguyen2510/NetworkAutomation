@@ -1,0 +1,19 @@
+---
+- name: OSPF Config
+  hosts: CoreSwitches
+  gather_facts: false
+
+  tasks:
+  - name: OSPF Config process 1, network 192.168.0.0 0.0.255.255 area 0
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.0.0 0.0.255.255 area 0
+        - passive-interface Vlan10
+        - passive-interface Vlan20
+        - passive-interface Vlan30
+        - passive-interface Vlan40
+        - passive-interface Vlan60
+      parents:
+        - router ospf 1
+  
+  
