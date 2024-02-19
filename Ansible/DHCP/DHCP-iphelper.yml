@@ -8,19 +8,23 @@
     cisco.ios.ios_config:
       lines:
         - ip helper-address 192.168.10.3
+        - no shutdown
       parents: interface vlan10
   - name: Config the following lines for ip helper-address
     cisco.ios.ios_config:
       lines:
         - ip helper-address 192.168.20.3
+        - no shutdown
       parents: interface vlan20
   - name: Config the following lines for ip helper-address
     cisco.ios.ios_config:
       lines:
         - ip helper-address 192.168.30.3
+        - no shutdown
       parents: interface vlan30
   - name: Config the following lines for ip helper-address
     cisco.ios.ios_config:
       lines:
         - ip helper-address 192.168.40.3
+        - no shutdown
       parents: interface vlan40
