@@ -1,6 +1,6 @@
 ---
 - name: OSPF Config
-  hosts: Router
+  hosts: Routers
   gather_facts: false
 
   tasks:
