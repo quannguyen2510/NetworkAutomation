@@ -1,0 +1,38 @@
+#Interfaces
+
+
+Interface FastEthernet0/0
+  ipv4 []
+  lineprotocal down
+  operstatus administratively down
+
+
+Interface Ethernet1/0
+  ipv4 [{'address': '192.168.247.102', 'subnet': '24'}]
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/1
+  ipv4 [{'address': '192.168.200.6', 'subnet': '30'}]
+  lineprotocal up
+  operstatus up
+
+
+Interface Ethernet1/2
+  ipv4 []
+  lineprotocal down
+  operstatus administratively down
+
+
+Interface Ethernet1/3
+  ipv4 []
+  lineprotocal down
+  operstatus administratively down
+
+
+Interface Loopback0
+  ipv4 [{'address': '2.0.0.0', 'subnet': '32'}]
+  lineprotocal up
+  operstatus up
+
