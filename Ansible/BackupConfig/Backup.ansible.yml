@@ -5,10 +5,7 @@
 
   tasks:
   - name: Backup the Cisco Devices
-    cisco.ios.ios_command:
-      commands: show run
-    register: config
-  - name: Save backup configure into a file name as "Backup_config_{{inventory_hostname}}.txt"
-    ansible.builtin.copy:
-      content: "{{config.stdout[0]}}"
-      dest: ~/MyGit/NetworkAutomation/Ansible/BackupConfig/{{inventory_hostname}}.backup.txt
+    cisco.ios.ios_config:
+      backup: true
+
+    
