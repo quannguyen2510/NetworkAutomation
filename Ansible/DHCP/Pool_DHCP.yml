@@ -1,0 +1,46 @@
+---
+- name: Config DHCP Service CoreSw1
+  hosts: CoreSwitches
+  gather_facts: false
+
+  tasks:
+  - name: Config the following lines for excluded-address
+    cisco.ios.ios_config:
+      lines:
+        - ip dhcp excluded-address 192.168.10.1 192.168.10.30
+        - ip dhcp excluded-address 192.168.20.1 192.168.20.30
+        - ip dhcp excluded-address 192.168.30.1 192.168.30.30
+        - ip dhcp excluded-address 192.168.40.1 192.168.40.30        
+  - name: Config the following lines for DHCP pool VLAN10
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.10.0 255.255.255.0
+        - default-router 192.168.10.3
+        - dns-server 8.8.8.8
+      parents: ip dhcp pool VLAN10
+  - name: Config the following lines for DHCP pool VLAN20
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.20.0 255.255.255.0
+        - default-router 192.168.20.3
+        - dns-server 8.8.8.8
+      parents: ip dhcp pool VLAN20
+  - name: Config the following lines for DHCP pool VLAN30
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.30.0 255.255.255.0
+        - default-router 192.168.30.3
+        - dns-server 8.8.8.8
+      parents: ip dhcp pool VLAN30
+  - name: Config the following lines for DHCP pool VLAN40
+    cisco.ios.ios_config:
+      lines:
+        - network 192.168.40.0 255.255.255.0
+        - default-router 192.168.40.3
+        - dns-server 8.8.8.8
+      parents: ip dhcp pool VLAN40
+
+  
+
+  
+
