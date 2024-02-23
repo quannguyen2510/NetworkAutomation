@@ -9,6 +9,7 @@
       gather_subset: all
       gather_network_resources: l2_interfaces
     register: output
-  - name: Print all
-    ansible.builtin.debug:
-      var: output
+  - name: Create config files from template
+    ansible.builtin.template:
+      src: interface_template.j2
+      dest: Ansible/Interfaces/Interfaces_Cfg/{{ inventory_hostname }}_interfaces_cfg.txt
