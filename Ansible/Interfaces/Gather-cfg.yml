@@ -1,0 +1,14 @@
+---
+- name: Gather information about all interfaces
+  hosts: CoreSw1
+  gather_facts: false
+
+  tasks:
+  - name: Gather fact of interfaces Cisco
+    cisco.ios.ios_facts:
+      gather_subset: all
+      gather_network_resources: l2_interfaces
+    register: output
+  - name: Print all
+    ansible.builtin.debug:
+      var: output
