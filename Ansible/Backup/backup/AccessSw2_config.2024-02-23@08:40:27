@@ -3,7 +3,7 @@ Building configuration...
   
 Current configuration : 2675 bytes
 !
-! Last configuration change at 06:17:44 UTC Thu Feb 22 2024
+! Last configuration change at 06:35:45 UTC Fri Feb 23 2024
 !
 version 15.2
 service timestamps debug datetime msec
@@ -11,15 +11,15 @@ service timestamps log datetime msec
 no service password-encryption
 service compress-config
 !
-hostname AccessSw1
+hostname AccessSw2
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$O17g$i4ju5g2OCsO67CwLV.QT//
+enable secret 5 $1$bzK5$VTXdU9rjtyb0AgNxb0OSk0
 !
-username root privilege 15 secret 5 $1$NTbt$GqviUVU91UZ7xHK9.X5Vr0
+username root privilege 15 secret 5 $1$p0mf$irof4IGsaeg0bDyBlbPyo/
 no aaa new-model
 !
 !
@@ -132,7 +132,7 @@ interface Vlan40
  ip helper-address 192.168.40.3 
 !
 interface Vlan60
- ip address 192.168.60.5 255.255.255.0
+ ip address 192.168.60.6 255.255.255.0
 !
 ip forward-protocol nd
 !

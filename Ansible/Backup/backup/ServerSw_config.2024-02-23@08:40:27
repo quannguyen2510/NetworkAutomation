@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 2675 bytes
+Current configuration : 2127 bytes
 !
-! Last configuration change at 06:17:45 UTC Thu Feb 22 2024
+! Last configuration change at 06:35:43 UTC Fri Feb 23 2024
 !
 version 15.2
 service timestamps debug datetime msec
@@ -11,15 +11,15 @@ service timestamps log datetime msec
 no service password-encryption
 service compress-config
 !
-hostname AccessSw2
+hostname ServerSw
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$bzK5$VTXdU9rjtyb0AgNxb0OSk0
+enable secret 5 $1$bKu1$k2G6drA9R8AH1RD1HwyU0.
 !
-username root privilege 15 secret 5 $1$p0mf$irof4IGsaeg0bDyBlbPyo/
+username root privilege 15 secret 5 $1$gybJ$qH2HYItk2VFIERkRwyyg9/
 no aaa new-model
 !
 !
@@ -30,7 +30,7 @@ no aaa new-model
 !
 !
 ip domain-name quan.vn
-no ip cef
+ip cef
 no ipv6 cef
 !
 !
@@ -54,85 +54,63 @@ vlan internal allocation policy ascending
 !
 !
 interface Port-channel1
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 interface Port-channel2
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
 !
 interface Ethernet0/0
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 1 mode active
 !
 interface Ethernet0/1
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 1 mode active
 !
 interface Ethernet0/2
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 2 mode active
 !
 interface Ethernet0/3
- switchport trunk allowed vlan 10,20,30,40,60
  switchport trunk encapsulation dot1q
  switchport mode trunk
  channel-protocol lacp
  channel-group 2 mode active
 !
 interface Ethernet1/0
- switchport access vlan 10
+ switchport access vlan 60
  switchport mode access
  spanning-tree portfast edge
  spanning-tree bpduguard enable
 !
 interface Ethernet1/1
- switchport access vlan 20
+ switchport access vlan 60
  switchport mode access
  spanning-tree portfast edge
  spanning-tree bpduguard enable
 !
 interface Ethernet1/2
- switchport access vlan 30
+ switchport access vlan 60
  switchport mode access
  spanning-tree portfast edge
  spanning-tree bpduguard enable
 !
 interface Ethernet1/3
- switchport access vlan 40
+ switchport access vlan 60
  switchport mode access
  spanning-tree portfast edge
  spanning-tree bpduguard enable
 !
-interface Vlan10
- no ip address
- ip helper-address 192.168.10.3 
-!
-interface Vlan20
- no ip address
- ip helper-address 192.168.20.3 
-!
-interface Vlan30
- no ip address
- ip helper-address 192.168.30.3 
-!
-interface Vlan40
- no ip address
- ip helper-address 192.168.40.3 
-!
 interface Vlan60
- ip address 192.168.60.6 255.255.255.0
+ ip address 192.168.60.8 255.255.255.0
 !
 ip forward-protocol nd
 !
