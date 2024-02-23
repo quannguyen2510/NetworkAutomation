@@ -1,6 +1,7 @@
 Building configuration...
 
-  
+
+
 Current configuration : 1734 bytes
 !
 ! Last configuration change at 13:43:29 UTC Sun Jan 14 2024
