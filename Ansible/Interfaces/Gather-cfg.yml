@@ -11,5 +11,5 @@
     register: output
   - name: Create config files from template
     ansible.builtin.template:
-      src: interface_template.j2
-      dest: Ansible/Interfaces/Interfaces_Cfg/{{ inventory_hostname }}_interfaces_cfg.txt
+      src: ~/MyGit/NetworkAutomation/Ansible/Templates/interfaces_templates.j2
+      dest: ./Interfaces_Cfg/{{inventory_hostname}}_interfaces_config.txt

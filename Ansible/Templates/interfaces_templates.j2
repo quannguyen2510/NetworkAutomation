@@ -1,20 +1,17 @@
-Interfaces configuration of {{ ansible_facts.ansible_net_hostname }}
+Interfaces configuration of {{ output.ansible_facts.ansible_net_hostname }}
 
-{% for interface, details in ansible_facts.ansible_net_interfaces.items() %}
+{% for interface, details in output.ansible_facts.ansible_net_interfaces.items() %}
 Interface {{ interface }}
-    {% if details.lineprotocol %}
     - lineprotocol: {{ details.lineprotocol }}
-    {% endif %}
-    {% if details.operstatus %}
     - operstatus: {{ details.operstatus }}
-    {% endif %}
-    {% if details.type %}
     - type: {{ details.type }}
-    {% endif %}
-    {% if details.ipv4 %}
+{% if details.ipv4 %}
     - ipv4: {{ details.ipv4 }}
-    {% endif %}
-    {% if 'trunk' in details %}
+{% endif %}
+{% for value in output.ansible_facts.ansible_network_resources.l2_interfaces %}
+{% if 'trunk' in value and value.name == interface %}
     - mode: trunk encapsulation dot1q
-    {% endif %}
+{% endif %}
+{% endfor %}
+
 {% endfor %}
