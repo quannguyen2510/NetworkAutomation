@@ -12,6 +12,9 @@ Interface {{ interface }}
 {% if 'trunk' in value and value.name == interface %}
     - mode: trunk encapsulation dot1q
 {% endif %}
+{{% if 'access' in value %}}
+    - mode : access vlan {{ value.access.vlan }}
+{{% endif %}}
 {% endfor %}
 
 {% endfor %}
