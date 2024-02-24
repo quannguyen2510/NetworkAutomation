@@ -1,0 +1,108 @@
+Interfaces configuration of AccessSw3
+
+Interface Ethernet0/0
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/1
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/2
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/3
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet1/0
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 10
+
+Interface Ethernet1/1
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 20
+
+Interface Ethernet1/2
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 30
+
+Interface Ethernet1/3
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 40
+
+Interface Ethernet2/0
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+
+Interface Ethernet2/1
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+
+Interface Ethernet2/2
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+
+Interface Ethernet2/3
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+
+Interface Port-channel1
+    - lineprotocol: up
+    - operstatus: up
+    - type: EtherChannel
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Port-channel2
+    - lineprotocol: up
+    - operstatus: up
+    - type: EtherChannel
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Vlan10
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+
+Interface Vlan20
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+
+Interface Vlan30
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+
+Interface Vlan40
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+
+Interface Vlan60
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+    - ipv4: [{'address': '192.168.60.7', 'subnet': '24'}]
+

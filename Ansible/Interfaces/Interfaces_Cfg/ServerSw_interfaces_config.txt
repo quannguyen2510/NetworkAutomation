@@ -1,0 +1,68 @@
+Interfaces configuration of ServerSw
+
+Interface Ethernet0/0
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/1
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/2
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet0/3
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Ethernet1/0
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 60
+
+Interface Ethernet1/1
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 60
+
+Interface Ethernet1/2
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 60
+
+Interface Ethernet1/3
+    - lineprotocol: up
+    - operstatus: up
+    - type: AmdP2
+    - mode: access vlan 60
+
+Interface Port-channel1
+    - lineprotocol: up
+    - operstatus: up
+    - type: EtherChannel
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Port-channel2
+    - lineprotocol: up
+    - operstatus: up
+    - type: EtherChannel
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
+
+Interface Vlan60
+    - lineprotocol: up
+    - operstatus: up
+    - type: Ethernet SVI
+    - ipv4: [{'address': '192.168.60.8', 'subnet': '24'}]
+

@@ -1,0 +1,37 @@
+---
+- name: ServerSw Config Access-Trunking
+  hosts: ServerSw
+  gather_facts: false
+
+  tasks:
+  - name: ServerSw Config Access
+    cisco.ios.ios_l2_interfaces:
+      config:
+        - name: "{{item}}"
+          mode: access
+          access:
+            vlan: 60
+      state: merged
+    loop:
+      - Ethernet1/0
+      - Ethernet1/1
+      - Ethernet1/2
+      - Ethernet1/3
+  - name: ServerSw Config Trunking
+    cisco.ios.ios_l2_interfaces:
+      config:
+        - name: port-channel1
+          mode: trunk
+          trunk:
+            encapsulation: dot1q
+            allowed_vlans: 10,20,30,40,60
+      state: merged
+  - name: ServerSw Config Trunking 2
+    cisco.ios.ios_l2_interfaces:
+      config:
+        - name: port-channel2
+          mode: trunk
+          trunk:
+            encapsulation: dot1q
+            allowed_vlans: 10,20,30,40,60
+      state: merged

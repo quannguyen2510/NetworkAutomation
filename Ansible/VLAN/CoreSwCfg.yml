@@ -1,0 +1,21 @@
+---
+- name: CoreSw CFG Access-Trunking
+  hosts: CoreSwitches
+  gather_facts: false
+
+  tasks:
+  - name: Use cisco.ios.ios_l2_interfaces config trunking
+    cisco.ios.ios_l2_interfaces:
+      config:
+        - name: "{{item}}"
+          mode: trunk
+          trunk:
+            encapsulation: dot1q
+            allowed_vlans: 10,20,30,40,60
+      state: merged
+    loop:
+       - port-channel1
+       - port-channel2
+       - port-channel3
+       - port-channel4
+       
