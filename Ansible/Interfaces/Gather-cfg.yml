@@ -1,6 +1,6 @@
 ---
 - name: Gather information about all interfaces
-  hosts: CoreSw1
+  hosts: all
   gather_facts: false
 
   tasks:
