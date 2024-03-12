@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 2855 bytes
+Current configuration : 2966 bytes
 !
-! Last configuration change at 08:06:12 UTC Sun Feb 25 2024 by root
+! Last configuration change at 08:49:07 UTC Sat Mar 9 2024 by root
 !
 version 15.2
 service timestamps debug datetime msec
@@ -11,15 +11,15 @@ service timestamps log datetime msec
 no service password-encryption
 service compress-config
 !
-hostname AccessSw1
+hostname AccessSw3
 !
 boot-start-marker
 boot-end-marker
 !
 !
-enable secret 5 $1$O17g$i4ju5g2OCsO67CwLV.QT//
+enable secret 5 $1$/odl$rsyTNjSIWsd5.lzKqJ8XF0
 !
-username root privilege 15 secret 5 $1$NTbt$GqviUVU91UZ7xHK9.X5Vr0
+username root privilege 15 secret 5 $1$nY0l$25m5pUGLeG6/aUF7UJTJB1
 no aaa new-model
 !
 !
@@ -30,7 +30,7 @@ no aaa new-model
 !
 !
 ip domain-name quan.vn
-no ip cef
+ip cef
 no ipv6 cef
 !
 !
@@ -115,6 +115,14 @@ interface Ethernet1/3
  spanning-tree portfast edge
  spanning-tree bpduguard enable
 !
+interface Ethernet2/0
+!
+interface Ethernet2/1
+!
+interface Ethernet2/2
+!
+interface Ethernet2/3
+!
 interface Vlan10
  no ip address
  ip helper-address 192.168.10.3 
@@ -132,7 +140,7 @@ interface Vlan40
  ip helper-address 192.168.40.3 
 !
 interface Vlan60
- ip address 192.168.60.5 255.255.255.0
+ ip address 192.168.60.7 255.255.255.0
 !
 ip forward-protocol nd
 !
@@ -154,6 +162,7 @@ line con 0
  logging synchronous
 line aux 0
 line vty 0 4
+ access-class 5 in
  login local
  transport input telnet ssh
 !
