@@ -1,9 +1,9 @@
 Building configuration...
 
   
-Current configuration : 2966 bytes
+Current configuration : 2940 bytes
 !
-! Last configuration change at 08:49:07 UTC Sat Mar 9 2024 by root
+! Last configuration change at 08:00:20 UTC Tue Mar 26 2024
 !
 version 15.2
 service timestamps debug datetime msec
@@ -162,7 +162,6 @@ line con 0
  logging synchronous
 line aux 0
 line vty 0 4
- access-class 5 in
  login local
  transport input telnet ssh
 !
