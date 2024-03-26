@@ -4,4 +4,4 @@
     lines:
       - snmp-server community {{community}} ro
       - snmp-server enable traps snmp
-      - snmp-server host {{smnp_ip_server}} version 2c {{community}} udp-port 161
+      - snmp-server host {{snmp_ip_server}} version 2c {{community}} udp-port 161

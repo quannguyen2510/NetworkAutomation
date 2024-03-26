@@ -1,5 +1,5 @@
 ---
-- name: SMNP Config
+- name: SNMP Config
   hosts: all
   gather_facts: false
 
