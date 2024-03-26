@@ -25,49 +25,49 @@ Interface Ethernet1/0
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet1/1
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet1/2
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet1/3
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet2/0
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet2/1
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet2/2
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet2/3
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Ethernet3/0
     - lineprotocol: up
@@ -93,25 +93,25 @@ Interface Port-channel1
     - lineprotocol: up
     - operstatus: up
     - type: EtherChannel
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Port-channel2
     - lineprotocol: up
     - operstatus: up
     - type: EtherChannel
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Port-channel3
     - lineprotocol: up
     - operstatus: up
     - type: EtherChannel
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Port-channel4
     - lineprotocol: up
     - operstatus: up
     - type: EtherChannel
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan ['10', '20', '30', '40', '60']
 
 Interface Port-channel5
     - lineprotocol: up

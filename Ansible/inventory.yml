@@ -19,6 +19,7 @@ ServerSwitch:
   hosts:
     ServerSw:
       ansible_host: 192.168.60.8
+
 Switches:
   children:
     CoreSwitches:

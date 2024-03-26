@@ -10,10 +10,10 @@ Interface {{ interface }}
 {% endif %}
 {% for value in output.ansible_facts.ansible_network_resources.l2_interfaces %}
 {% if 'trunk' in value and value.name == interface %}
-    - mode: trunk encapsulation dot1q
+    - mode: trunk encapsulation dot1q, allowed vlan {{ value.trunk.allowed_vlans }}
 {% endif %}
-{% if 'access' in value %}
-    - mode : access vlan {{ value.access.vlan }}
+{% if 'access' in value and value.name == interface %}
+    - mode: access vlan {{value.access.vlan}}
 {% endif %}
 {% endfor %}
 

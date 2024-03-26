@@ -9,7 +9,7 @@ Interface Ethernet1/0
     - lineprotocol: up
     - operstatus: up
     - type: AmdP2
-    - ipv4: [{'address': '192.168.247.134', 'subnet': '24'}]
+    - ipv4: [{'address': '192.168.247.136', 'subnet': '24'}]
 
 Interface Ethernet1/1
     - lineprotocol: up
