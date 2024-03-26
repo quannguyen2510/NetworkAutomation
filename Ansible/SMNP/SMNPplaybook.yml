@@ -1,0 +1,7 @@
+---
+- name: SMNP Config
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - SNMProle

@@ -1,0 +1,7 @@
+---
+- name: Config following command lines
+  cisco.ios.ios_config:
+    lines:
+      - snmp-server community {{community}} ro
+      - snmp-server enable traps snmp
+      - snmp-server host {{smnp_ip_server}} version 2c {{community}} udp-port 161
