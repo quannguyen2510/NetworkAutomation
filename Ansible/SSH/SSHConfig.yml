@@ -1,0 +1,12 @@
+---
+- name: SSHconfig
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Config following lines for SSH add
+      cisco.ios.ios_config:
+        lines:
+          - access-class 5 in
+        parents:
+          - line vty 0 4 
