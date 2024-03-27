@@ -1,0 +1,14 @@
+---
+- name: Gather information about all interfaces
+  hosts: AccessSw1
+  gather_facts: false
+
+  tasks:
+  - name: Gather fact of interfaces Cisco
+    cisco.ios.ios_facts:
+      gather_subset: all
+      gather_network_resources: l2_interfaces
+    register: output
+  - name: Create config files from template
+    ansible.builtin.debug:
+      msg: "{{output}}"
