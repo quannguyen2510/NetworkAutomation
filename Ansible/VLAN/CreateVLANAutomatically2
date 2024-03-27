@@ -1,0 +1,7 @@
+---
+- name: Create VLANs on AccessSwitches
+  hosts: Switches
+  gather_facts: false
+
+  roles:
+    - VLANCreateRole2

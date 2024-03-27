@@ -1,0 +1,13 @@
+---
+- name: VLAN Config
+  hosts: AccessSw1
+  gather_facts: false
+
+  tasks:
+  - name: Gather VLAN Info
+    cisco.ios.ios_vlans:
+      state: gathered
+    register: gathered
+  - name: Show
+    ansible.builtin.debug:
+      msg: "{{gathered}}"
