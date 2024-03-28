@@ -8,7 +8,7 @@
           vlan: "{{item.vlanid}}"
     state: merged
   loop: "{{access_port}}"
-  when: inventory_hostname == regex_search('^Access.*$')
+  when: inventory_hostname | regex_search('^Access.*$')
 
 - name: Configure Trunk Port
   cisco.ios.ios_l2_interfaces:
