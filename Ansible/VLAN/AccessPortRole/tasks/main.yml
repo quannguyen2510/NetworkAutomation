@@ -7,7 +7,7 @@
         access:
           vlan: "{{item.vlanid}}"
     state: merged
-  loop: "{{AccessSwitches.access_port}}"
+  loop: "{{access_port}}"
 
 - name: Configure Trunk Port
   cisco.ios.ios_l2_interfaces:
@@ -18,4 +18,4 @@
           encapsulation: dot1q
           allowed_vlans: "{{ vlan_info | map(attribute='id') | list }}"
     state: merged
-  loop: "{{AccessSwitches.trunk_port}}"
+  loop: "{{trunk_port}}"
