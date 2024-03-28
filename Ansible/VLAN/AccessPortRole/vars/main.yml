@@ -1,0 +1,5 @@
+access_port:
+  - { name: "Ethernet1/0" , vlanid: "60" }
+  - { name: "Ethernet1/1" , vlanid: "20" }
+  - { name: "Ethernet1/2" , vlanid: "30" }
+  - { name: "Ethernet1/3" , vlanid: "40" }

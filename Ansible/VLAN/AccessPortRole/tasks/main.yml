@@ -1,0 +1,10 @@
+---
+- name: Configure Access Port
+  cisco.ios.ios_l2_interfaces:
+    config:
+      - name: "{{item.name}}"
+        mode: access
+        access:
+          vlan: "{{item.vlanid}}"
+    state: merged
+  loop: "{{access_port}}"
