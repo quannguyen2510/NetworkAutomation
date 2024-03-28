@@ -17,7 +17,7 @@
 - name: Configure Trunk Port
   cisco.ios.ios_l2_interfaces:
     config:
-      - name: {{trunk_port}}
+      - name: "{{trunk_port}}"
         mode: trunk
         trunk:
           encapsulation: dot1q
