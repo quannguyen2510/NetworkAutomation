@@ -1,4 +1,9 @@
 ---
+- name: Gather VLAN Info
+  cisco.ios.ios_vlans:
+    state: gathered
+  register: gathered
+
 - name: Configure Access Port
   cisco.ios.ios_l2_interfaces:
     config:
@@ -8,3 +13,15 @@
           vlan: "{{item.vlanid}}"
     state: merged
   loop: "{{access_port}}"
+
+- name: Configure Trunk Port
+  cisco.ios.ios_l2_interfaces:
+    config:
+      - name: {{trunk_port}}
+        mode: trunk
+        trunk:
+          encapsulation: dot1q
+          allowed_vlans: {{item.vlan_id}}
+    state: merged
+  when: (item.vlan_id > 1) and (item.vlan_id < 1000) and (item.state == "active")
+  loop: "{{gathered}}"
