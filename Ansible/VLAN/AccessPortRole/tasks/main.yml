@@ -23,5 +23,6 @@
           encapsulation: dot1q
           allowed_vlans: "{{item.vlan_id}}"
     state: merged
-  when: (item.'vlan_id' > 1) and (item.'vlan_id' < 1000) and (item.'state' == "active")
   loop: "{{gathered}}"
+  when: (item.'vlan_id' > 1) and (item.'vlan_id' < 1000) and (item.'state' == 'active')
+ 
