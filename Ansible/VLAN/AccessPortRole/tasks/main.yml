@@ -16,6 +16,6 @@
         mode: trunk
         trunk:
           encapsulation: dot1q
-          allowed_vlans: "{{item.id}}"
+          allowed_vlans: "{{item}}"
     state: merged
-  loop: "{{ query(vlan_info) }}"
+  loop: "{{ query(vlan_info.id) }}"
