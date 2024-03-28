@@ -18,4 +18,4 @@
           encapsulation: dot1q
           allowed_vlans: "{{item.id}}"
     state: merged
-  loop: "{{ lookup(vlan_info) }}"
+  loop: "{{ query(vlan_info) }}"
