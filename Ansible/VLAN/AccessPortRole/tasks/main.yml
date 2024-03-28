@@ -1,3 +1,4 @@
+
 ---
 - name: Configure Access Port
   cisco.ios.ios_l2_interfaces:
@@ -8,7 +9,7 @@
           vlan: "{{item.vlanid}}"
     state: merged
   loop: "{{access_port}}"
-  when: inventory_hostname | regex_search('^Access.*$')
+  when: not inventory_hostname | regex_search('^Core.*$')
 
 - name: Configure Trunk Port
   cisco.ios.ios_l2_interfaces:

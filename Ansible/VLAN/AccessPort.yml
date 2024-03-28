@@ -1,6 +1,6 @@
 ---
 - name: Access Port Config
-  hosts: AccessSw1
+  hosts: Switches
   gather_facts: false
 
   roles:
