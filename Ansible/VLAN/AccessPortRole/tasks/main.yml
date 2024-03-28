@@ -12,10 +12,10 @@
 - name: Configure Trunk Port
   cisco.ios.ios_l2_interfaces:
     config:
-      - name: "{{trunk_port}}"
+      - name: "{{item}}"
         mode: trunk
         trunk:
           encapsulation: dot1q
           allowed_vlans: "{{ vlan_info | map(attribute='id') | list }}"
     state: merged
- 
+  loop: "{{trunk_port}}"
