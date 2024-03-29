@@ -1,0 +1,23 @@
+---
+- name: Config the following lines for DHCP pool
+  cisco.ios.ios_config:
+    lines:
+    - network 192.168.{{vlan_id}}.0 255.255.255.0
+    - default-router 192.168."{{vlan_id}}""{{default-gateway}}"
+    - dns-server "{{dns_server}}"
+    parents: ip dhcp pool VLAN"{{vlan_id}}"
+  when: inventory_hostname | regex_search('^Core.*$')
+
+- name: Config the following lines for excluded-address
+  cisco.ios.ios_config:
+    lines:
+    - ip dhcp excluded-address 192.168."{{vlan_id}}""{{ip_excluded.start}}" 192.168."{{vlan_id}}""{{ip_excluded.end}}"
+  when: inventory_hostname | regex_search('^Core.*$')
+
+- name: Config the following lines for ip helper-address
+  cisco.ios.ios_config:
+    lines:
+      - ip helper-address 192.168."{{vlan_id}}""{{default-gateway}}"
+      - no shutdown
+    parents: interface vlan"{{vlan_id}}"
+  when: inventory_hostname | regex_search('AccessSw.*$')
