@@ -1,0 +1,17 @@
+---
+- name: Config ipv4 l3_interfaces
+  cisco.ios.ios_l3_interfaces:
+    config:
+    - name: "{{item.name}}"
+      ipv4:
+        - address: "{{item.ip_address}}"
+  loop: "{{ l3_interfaces }}"
+
+- name: config dhcp l3_interfaces
+  cisco.ios.ios_l3_interfaces:
+    config:  
+    - name: {{dhcp_interface}}
+      ipv4:
+        - dhcp:
+            enable: true
+    state: merged

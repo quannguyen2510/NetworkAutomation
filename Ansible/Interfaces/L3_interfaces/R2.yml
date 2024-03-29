@@ -1,3 +1,4 @@
+---
 - name: Config interfaces_l3
   hosts: R2
   gather_facts: false

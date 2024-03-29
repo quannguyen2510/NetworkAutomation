@@ -1,0 +1,8 @@
+---
+- name: Config ipv4 interfaces_l3
+  hosts: CoreSwitches, Routers
+  gather_facts: false
+
+  roles:
+    - ipv4config_role
+

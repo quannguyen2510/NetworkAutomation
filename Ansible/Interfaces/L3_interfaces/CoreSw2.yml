@@ -1,3 +1,4 @@
+---
 - name: Config interfaces_l3 CoreSwitches
   hosts: CoreSw2
   gather_facts: false
