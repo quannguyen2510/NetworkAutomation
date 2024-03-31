@@ -1,0 +1,9 @@
+---
+default-route: "e0/0"
+ip_isp: "192.168.247.2"
+
+ospf_network: "192.168.0.0"
+wildcard_mask: "0.0.255.255"
+ospf_area: "0"
+ospf_process: "1"
+metric-type: "1"

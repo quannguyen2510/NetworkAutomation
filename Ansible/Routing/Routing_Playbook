@@ -1,0 +1,7 @@
+---
+- name: Routing Config
+  hosts: CoreSwitches, Routers
+  gather_facts: false
+
+  roles:
+  - Routing_role
