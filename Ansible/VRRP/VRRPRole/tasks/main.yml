@@ -1,0 +1,19 @@
+---
+- name: Config VRRP master
+  cisco.ios.ios_config:
+    lines:
+      - vrrp {{vlan_id}} ip 192.168."{{vlan_id}}""{{default-gateway}}"
+      - vrrp {{vlan_id}} priority 110
+      - vrrp {{vlan_id}} preempt
+      - no shut
+    parents: interface vlan"{{vlan_id}}"
+  when: vrrp_master == "yes"
+
+- name: Config VRRP backup
+  cisco.ios.ios_config:
+    lines:
+      - vrrp {{vlan_id}} ip 192.168."{{vlan_id}}""{{default-gateway}}"
+      - vrrp {{vlan_id}} preempt
+      - no shut
+    parents: interface vlan"{{vlan_id}}"
+  when: vrrp_master == "no"
