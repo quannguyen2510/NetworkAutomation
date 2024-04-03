@@ -23,4 +23,4 @@
       - no shutdown
     parents: interface vlan"{{item.id}}"
   loop: "{{ vlan_info }}"
-  when: inventory_hostname | regex_search('AccessSw.*$')
+  when: inventory_hostname | match('^AccessSw|^ServerSw')
