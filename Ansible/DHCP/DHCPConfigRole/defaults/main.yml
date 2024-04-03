@@ -1,5 +1,5 @@
 ---
-default-gateway: ".3"
+default_gateway: ".3"
 dns_server: "8.8.8.8"
 ip_excluded: { start: ".1" , end : ".30" }
 

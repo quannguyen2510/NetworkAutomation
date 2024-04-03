@@ -3,7 +3,7 @@
   cisco.ios.ios_config:
     lines:
     - network 192.168.{{item.id}}.0 255.255.255.0
-    - default-router 192.168."{{ item.id }}""{{default-gateway}}"
+    - default-router 192.168."{{ item.id }}""{{default_gateway}}"
     - dns-server "{{dns_server}}"
     parents: ip dhcp pool VLAN"{{ item.id }}"
   loop: "{{ vlan_info }}"
@@ -19,7 +19,7 @@
 - name: Config the following lines for ip helper-address
   cisco.ios.ios_config:
     lines:
-      - ip helper-address 192.168."{{item.id}}""{{default-gateway}}"
+      - ip helper-address 192.168."{{item.id}}""{{default_gateway}}"
       - no shutdown
     parents: interface vlan"{{ item.id }}"
   loop: "{{ vlan_info }}"
