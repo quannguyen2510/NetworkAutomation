@@ -2,7 +2,7 @@
 - name: Config the following lines for DHCP pool
   cisco.ios.ios_config:
     lines:
-    - network 192.168.{{vlan_id}}.0 255.255.255.0
+    - network 192.168.{{item.id}}.0 255.255.255.0
     - default-router 192.168."{{ item.id }}""{{default-gateway}}"
     - dns-server "{{dns_server}}"
     parents: ip dhcp pool VLAN"{{ item.id }}"
@@ -21,6 +21,6 @@
     lines:
       - ip helper-address 192.168."{{item.id}}""{{default-gateway}}"
       - no shutdown
-    parents: interface vlan"{{item.id}}"
+    parents: interface vlan"{{ item.id }}"
   loop: "{{ vlan_info }}"
-  when: inventory_hostname | match('^AccessSw|^ServerSw')
+  when: inventory_hostname | regex_search('AccessSw.*$')
