@@ -1,0 +1,6 @@
+---
+trunk_port:
+  - port-channel1
+  - port-channel2
+  - port-channel3
+  - port-channel4
