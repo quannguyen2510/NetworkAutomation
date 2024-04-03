@@ -3,24 +3,24 @@
   cisco.ios.ios_config:
     lines:
     - network 192.168.{{item.id}}.0 255.255.255.0
-    - default-router 192.168."{{ item.id }}""{{default_gateway}}"
-    - dns-server "{{dns_server}}"
-    parents: ip dhcp pool VLAN"{{ item.id }}"
-  loop: "{{ vlan_info }}"
+    - default-router 192.168.{{ item.id }}{{default_gateway}}
+    - dns-server {{dns_server}}
+    parents: ip dhcp pool VLAN{{ item.id }}
+  loop: {{ vlan_info }}
   when: inventory_hostname | regex_search('^Core.*$')
 
 - name: Config the following lines for excluded-address
   cisco.ios.ios_config:
     lines:
-    - ip dhcp excluded-address 192.168."{{ item.id }}""{{ip_excluded.start}}" 192.168."{{ item.id }}""{{ip_excluded.end}}"
-  loop: "{{ vlan_info }}"
+    - ip dhcp excluded-address 192.168.{{ item.id }}{{ip_excluded.start}} 192.168.{{ item.id }}{{ip_excluded.end}}
+  loop: {{ vlan_info }}
   when: inventory_hostname | regex_search('^Core.*$')
 
 - name: Config the following lines for ip helper-address
   cisco.ios.ios_config:
     lines:
-      - ip helper-address 192.168."{{item.id}}""{{default_gateway}}"
+      - ip helper-address 192.168.{{item.id}}{{default_gateway}}
       - no shutdown
-    parents: interface vlan"{{ item.id }}"
-  loop: "{{ vlan_info }}"
+    parents: interface vlan{{ item.id }}
+  loop: {{ vlan_info }}
   when: inventory_hostname | regex_search('AccessSw.*$')
