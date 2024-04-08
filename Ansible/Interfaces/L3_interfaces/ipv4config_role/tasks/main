@@ -11,9 +11,10 @@
 - name: config dhcp l3_interfaces
   cisco.ios.ios_l3_interfaces:
     config:  
-    - name: "{{dhcp_interface}}"
+    - name: "{{item.name}}"
       ipv4:
         - dhcp:
             enable: true
     state: merged
+  loop: "{{ l3_interface }}"
   when: item.dhcp_option == "yes"

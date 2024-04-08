@@ -4,11 +4,13 @@
     lines:
       - spanning-tree bpduguard enable
       - spanning-tree portfast edge
-    parents: "{{access_port}}"
+    parents: "{{access_port.name}}"
+  when: inventory_hostname | regex_search('^Access.*$')
 
 - name: Config root switch
   cisco.ios.ios_config:
     lines:
-      - spanning-tree vlan "{{root_vlan}}"" root primary
-      - spanning-tree vlan "{{secondary_vlan}}"" root secondary
-    delegate_to: "{{root_sw}}"
+      - spanning-tree vlan "{{item.root_vlan}}"" root primary
+      - spanning-tree vlan "{{item.secondary_vlan}}"" root secondary
+  loop: "{{STP_root}}"
+  when: inventory_hostname == item.device

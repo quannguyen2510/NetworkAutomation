@@ -1,5 +1,4 @@
 ---
-
 #VLAN
 vlan_info:
   - { name: "PC Kinh doanh" , id: "10" }
@@ -11,3 +10,20 @@ vlan_info:
 #SNMP
 snmp_ip_server : "192.168.60.13"
 community : "quan"
+
+#Routing-OSPF
+default_route: "e0/0"
+ip_isp: "192.168.247.2"
+
+ospf : { network: "192.168.0.0", wildcard_mask: "0.0.255.255", area: "0", process: "1", metric-type: "1" }
+
+#STP
+STP_root :
+  - { device: CoreSw1, root_vlan: "10,30,60", secondary_vlan: "20,40"}
+  - { device: CoreSw2, root_vlan: "20,40", secondary_vlan: "10,30,60"}
+
+#DHCP
+default_gateway: ".3"
+dns_server: "8.8.8.8"
+ip_excluded: { start: ".1" , end : ".30" }
+

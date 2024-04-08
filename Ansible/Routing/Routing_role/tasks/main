@@ -16,10 +16,10 @@
 - name: OSPF Config CoreSwitches
   cisco.ios.ios_config:
     lines:
-      - network {{ospf_network}} {{wildcard_mask}} area {{ospf_area}}
-      - passive-interface {{default-route}}
-      - default-information originate metric-type {{metric-type}}
+      - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
+      - passive-interface {{default_route}}
+      - default-information originate metric-type {{ospf.metric-type}}
     parents:
-      - router ospf {{ospf_process}}
+      - router ospf {{ospf.process}}
   when: inventory_hostname | regex_search('^Core.*$')
 

@@ -1,0 +1,4 @@
+---
+STP_root : 
+  - { device: CoreSw1, root_vlan: "10,30,60", secondary_vlan: "20,40"}
+  - { device: CoreSw2, root_vlan: "20,40", secondary_vlan: "10,30,60"}

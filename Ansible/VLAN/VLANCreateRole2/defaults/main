@@ -1,9 +1,0 @@
----
-vlan_info:
-  - { name: "PC Kinh doanhhh" , id: "10" }
-  - { name: "PC Ky thuat" , id: "20" }
-  - { name: "Printer" , id: "30" }
-  - { name: "IP Phone" , id: "40" }
-  - { name: "Server and Mgmt" , id: "60" }
-
-

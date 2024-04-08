@@ -1,19 +1,20 @@
 ---
-- name: Config VRRP master
+- name: Config VRRP
   cisco.ios.ios_config:
     lines:
-      - vrrp {{vlan_id}} ip 192.168."{{vlan_id}}""{{default-gateway}}"
-      - vrrp {{vlan_id}} priority 110
-      - vrrp {{vlan_id}} preempt
+      - vrrp {{item.id}} ip 192.168.{{item.id}}{{default_gateway}}
+      - vrrp {{item.id}} preempt
       - no shut
-    parents: interface vlan"{{vlan_id}}"
-  when: vrrp_master == "yes"
+    parents: interface vlan{{item.id}}
+  loop: "{{vlan_info}}"
+  when: inventory_hostname | regex_search('^Core.*$')
 
-- name: Config VRRP backup
+- name: Config VRRP priority
   cisco.ios.ios_config:
     lines:
-      - vrrp {{vlan_id}} ip 192.168."{{vlan_id}}""{{default-gateway}}"
-      - vrrp {{vlan_id}} preempt
-      - no shut
-    parents: interface vlan"{{vlan_id}}"
-  when: vrrp_master == "no"
+      - vrrp {{master_vlan}} priority 110
+    parents: interface vlan{{master_vlan}}
+  loop: "{{ STP_root }}"
+  vars:
+    master_vlan: "{{ item | map(attribute='root_vlan') | split(',') }}"
+  when: inventory_hostname == item.device

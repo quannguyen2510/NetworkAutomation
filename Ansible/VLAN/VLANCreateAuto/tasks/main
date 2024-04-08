@@ -1,0 +1,13 @@
+---
+- name: Create VLANs
+  vars:
+    vlan_id: "{{ ansible_loop.index * 10 }}"  # Generate VLAN ID dynamically
+  cisco.ios.ios_vlans:
+    config:
+      - vlan_id: "{{ vlan_id }}"
+        name: "{{ item }}"
+        state: active
+        shutdown: disabled
+  loop: "{{ vlan_names }}"
+  loop_control:
+    extended: true
