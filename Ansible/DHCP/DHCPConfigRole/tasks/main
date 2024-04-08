@@ -7,14 +7,19 @@
     - dns-server {{dns_server}}
     parents: ip dhcp pool VLAN{{ item.id }}
   loop: "{{ vlan_info }}"
-  when: inventory_hostname | regex_search('^Core.*$')
+  when: 
+    - inventory_hostname | regex_search('^Core.*$')
+    - not item.name.startswith('Server')
+  
 
 - name: Config the following lines for excluded-address
   cisco.ios.ios_config:
     lines:
     - ip dhcp excluded-address 192.168.{{ item.id }}{{ip_excluded.start}} 192.168.{{ item.id }}{{ip_excluded.end}}
   loop: "{{ vlan_info }}"
-  when: inventory_hostname | regex_search('^Core.*$')
+  when: 
+    - inventory_hostname | regex_search('^Core.*$')
+    - not item.name.startswith('Server')
 
 - name: Config the following lines for ip helper-address
   cisco.ios.ios_config:
@@ -23,4 +28,6 @@
       - no shutdown
     parents: interface vlan{{ item.id }}
   loop: "{{ vlan_info }}"
-  when: inventory_hostname | regex_search('AccessSw.*$')
+  when: 
+    - inventory_hostname | regex_search('AccessSw.*$')
+    - not item.name.startswith('Server')
