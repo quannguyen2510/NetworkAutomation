@@ -1,4 +1,4 @@
 ---
 l3_interface:
-  - { name: "e1/1" , ip_address : "192.168.200.6" , dhcp_option: "no"}
+  - { name: "e1/1" , ip_address : "192.168.200.6/24" , dhcp_option: "no"}
   - { name: "e0/0" , dhcp_option: "yes"}
