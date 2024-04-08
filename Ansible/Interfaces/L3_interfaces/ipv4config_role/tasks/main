@@ -4,7 +4,7 @@
     config:
     - name: "{{item.name}}"
       ipv4:
-        - address: "{{item.ip_address}}"
+        - address: {{item.ip_address}}
   loop: "{{ l3_interface }}"
   when: item.dhcp_option == "no"
 
