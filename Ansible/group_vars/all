@@ -15,7 +15,7 @@ community : "quan"
 default_route: "e0/0"
 ip_isp: "192.168.247.2"
 
-ospf : { network: "192.168.0.0", wildcard_mask: "0.0.255.255", area: "0", process: "1", metric-type: "1" }
+ospf : { network: "192.168.0.0", wildcard_mask: "0.0.255.255", area: "0", process: "1", metric_type: "1" }
 
 #STP
 STP_root :
