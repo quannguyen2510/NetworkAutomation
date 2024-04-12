@@ -3,6 +3,7 @@
   cisco.ios.ios_config:
     lines:
       - ip route 0.0.0.0 0.0.0.0 {{ip_isp}}
+  when: inventory_hostname | regex_search('^R.*$')
 
 - name: OSPF Config for Routers
   cisco.ios.ios_config:
@@ -11,7 +12,7 @@
       - passive-interface vlan{{vlan_id}}
     parents:
       - router ospf {{ospf_process}}
-  delegate_to: inventory_hostname | regex_search('^R.*$')
+  when: inventory_hostname | regex_search('^R.*$')
 
 - name: OSPF Config CoreSwitches
   cisco.ios.ios_config:
