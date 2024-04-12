@@ -11,7 +11,7 @@
       - passive-interface vlan{{vlan_id}}
     parents:
       - router ospf {{ospf_process}}
-  when: inventory_hostname | regex_search('^R.*$')
+  delegate_to: inventory_hostname | regex_search('^R.*$')
 
 - name: OSPF Config CoreSwitches
   cisco.ios.ios_config:
