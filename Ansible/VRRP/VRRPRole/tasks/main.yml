@@ -11,12 +11,12 @@
 - name: Config VRRP priority
   cisco.ios.ios_config:
     lines:
-      - vrrp {{ item }} priority 110
-    parents: interface vlan{{ master_vlan }}
+      - vrrp {{master_vlan}} priority 110
+    parents: interface vlan{{master_vlan}}
   loop: "{{ STP_root }}"
+  when: inventory_hostname == item.device
   vars:
-    master_vlans: "{{ item.root_vlan.split(',') }}"
+    master_vlan: "{{ item | map(attribute='root_vlan') | string | split(',') }}"
   loop_control:
     loop_var: master_vlan
-  when: inventory_hostname == item.device
-
+  
