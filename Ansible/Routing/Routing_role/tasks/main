@@ -8,10 +8,10 @@
 - name: OSPF Config for Routers
   cisco.ios.ios_config:
     lines:
-      - network {{ospf_network}} {{wildcard_mask}} area {{ospf_area}}
+      - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
       - passive-interface vlan{{vlan_id}}
     parents:
-      - router ospf {{ospf_process}}
+      - router ospf {{ospf.process}}
   when: inventory_hostname | regex_search('^R.*$')
 
 - name: OSPF Config CoreSwitches
@@ -19,7 +19,7 @@
     lines:
       - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
       - passive-interface {{default_route}}
-      - default-information originate metric-type {{ospf.metric-type}}
+      - default-information originate metric-type {{ospf.metric_type}}
     parents:
       - router ospf {{ospf.process}}
   when: inventory_hostname | regex_search('^Core.*$')
