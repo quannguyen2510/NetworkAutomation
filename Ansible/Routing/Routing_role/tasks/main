@@ -5,7 +5,7 @@
       - ip route 0.0.0.0 0.0.0.0 {{ip_isp}}
   when: inventory_hostname | regex_search('^R.*$')
 
-- name: OSPF Config for Routers
+- name: OSPF Config for CoreSwitches
   cisco.ios.ios_config:
     lines:
       - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
@@ -13,9 +13,9 @@
     parents:
       - router ospf {{ospf.process}}
   loop: "{{vlan_info}}"
-  when: inventory_hostname | regex_search('^R.*$')
+  when: inventory_hostname | regex_search('^Core.*$')
 
-- name: OSPF Config CoreSwitches
+- name: OSPF Config Routers
   cisco.ios.ios_config:
     lines:
       - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
@@ -23,5 +23,5 @@
       - default-information originate metric-type {{ospf.metric_type}}
     parents:
       - router ospf {{ospf.process}}
-  when: inventory_hostname | regex_search('^Core.*$')
+  when: inventory_hostname | regex_search('^R.*$')
 
