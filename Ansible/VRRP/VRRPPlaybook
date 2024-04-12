@@ -1,6 +1,6 @@
 ---
 - name: spanning-tree Config
-  hosts: Switches
+  hosts: CoreSwitches
   gather_facts: false
 
   roles:

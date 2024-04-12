@@ -19,8 +19,8 @@ ospf : { network: "192.168.0.0", wildcard_mask: "0.0.255.255", area: "0", proces
 
 #STP
 STP_root :
-  - { device: CoreSw1, root_vlan: "10,30,60", secondary_vlan: "20,40"}
-  - { device: CoreSw2, root_vlan: "20,40", secondary_vlan: "10,30,60"}
+  - { device: "CoreSw1", root_vlan: "10,30,60", secondary_vlan: "20,40"}
+  - { device: "CoreSw2", root_vlan: "20,40", secondary_vlan: "10,30,60"}
 
 #DHCP
 default_gateway: ".3"

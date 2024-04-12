@@ -7,7 +7,6 @@
       - no shut
     parents: interface vlan{{item.id}}
   loop: "{{vlan_info}}"
-  when: inventory_hostname | regex_search('^Core.*$')
 
 - name: Config VRRP priority
   cisco.ios.ios_config:
@@ -16,5 +15,5 @@
     parents: interface vlan{{master_vlan}}
   loop: "{{ STP_root }}"
   vars:
-    master_vlan: "{{ item | map(attribute='root_vlan') | split(',') }}"
+    master_vlan: "{{ item | map(attribute='root_vlan') | string | split(',') }}"
   when: inventory_hostname == item.device
