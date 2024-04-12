@@ -12,7 +12,7 @@ snmp_ip_server : "192.168.60.13"
 community : "quan"
 
 #Routing-OSPF
-default_route: "e0/0"
+default_route: "e1/0"
 ip_isp: "192.168.247.2"
 
 ospf : { network: "192.168.0.0", wildcard_mask: "0.0.255.255", area: "0", process: "1", metric_type: "1" }
