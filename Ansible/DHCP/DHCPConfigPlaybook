@@ -1,6 +1,6 @@
 ---
 - name: Config ip helper-address
-  hosts: Switches
+  hosts: CoreSwitches
   gather_facts: false
 
   roles:
