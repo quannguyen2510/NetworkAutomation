@@ -19,7 +19,7 @@
   cisco.ios.ios_config:
     lines:
       - network {{ospf.network}} {{ospf.wildcard_mask}} area {{ospf.area}}
-      - passive-interface {{default_route}}
+      - passive-interface "{{default_route}}"
       - default-information originate metric-type {{ospf.metric_type}}
     parents:
       - router ospf {{ospf.process}}
