@@ -4,7 +4,7 @@
     lines:
       - spanning-tree bpduguard enable
       - spanning-tree portfast edge
-    parents: "{{item.name}}"
+    parents: {{item.name}}
   loop: "{{access_port}}"
   when: inventory_hostname | regex_search('^Access.*$')
 
