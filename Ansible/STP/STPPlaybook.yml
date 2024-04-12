@@ -1,0 +1,7 @@
+---
+- name: spanning-tree Config
+  hosts: Switches
+  gather_facts: false
+
+  roles:
+  - STP_Role
