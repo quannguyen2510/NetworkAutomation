@@ -15,7 +15,6 @@
     parents: interface vlan{{ master_vlan }}
   loop: "{{ STP_root }}"
   vars:
-    STP_root: "{{ STP_root }}"
     master_vlans: "{{ item.root_vlan.split(',') }}"
   loop_control:
     loop_var: master_vlan
