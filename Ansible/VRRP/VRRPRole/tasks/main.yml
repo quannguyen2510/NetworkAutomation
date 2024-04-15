@@ -12,7 +12,7 @@
 - name: VRRP Prioritize
   cisco.ios.ios_config:
     lines:
-      - vrrp {{item.vlan}} priority 110
-    parents: interface vlan{{item.vlan}}
+      - vrrp {{item.master_vlan}} priority 110
+    parents: interface vlan{{item.master_vlan}}
   loop: "{{ VRRP }}"
   when: inventory_hostname == item.device
