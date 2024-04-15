@@ -9,7 +9,10 @@
   loop: "{{vlan_info}}"
 
 
-- include_tasks: inner.yml
-  loop: "{{STP_root}}"
-  loop_control:
-    loop_var: outer_item
+- name: VRRP Prioritize
+  cisco.ios.ios_config:
+    lines:
+      - vrrp {{item.vlan}} priority 110
+    parents: interface vlan{{item.vlan}}
+  loop: "{{ VRRP }}"
+  when: inventory_hostname == VRRP.device

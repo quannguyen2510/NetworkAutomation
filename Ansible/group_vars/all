@@ -29,7 +29,10 @@ ip_excluded: { start: ".1" , end : ".30" }
 
 #VRRP
 VRRP :
-  - { device: "CoreSw1", master_vlan: "10,30,60", secondary_vlan: "20,40"}
-  - { device: "CoreSw2", root_vlan: "20,40", secondary_vlan: "10,30,60"}
+  - { master_vlan: '10', device: 'CoreSw1' }
+  - { master_vlan: '30', device: 'CoreSw1' }
+  - { master_vlan: '60', device: 'CoreSw1' }
+  - { master_vlan: '20', device: 'CoreSw2' }
+  - { master_vlan: '40', device: 'CoreSw2' }
 
 
