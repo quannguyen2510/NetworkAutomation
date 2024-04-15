@@ -1,5 +1,5 @@
 ---
-- name: Config following command lines
+- name: SNMP Config
   cisco.ios.ios_config:
     lines:
       - snmp-server community {{community}} ro
