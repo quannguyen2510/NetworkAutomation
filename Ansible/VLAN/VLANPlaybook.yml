@@ -1,5 +1,5 @@
 ---
-- name: Access Port Config
+- name: VLAN Config
   hosts: Switches
   gather_facts: false
 
