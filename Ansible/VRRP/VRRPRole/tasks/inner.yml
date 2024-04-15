@@ -1,8 +1,6 @@
 ---
 - name: VRRP Config
-  cisco.ios.ios_config:
-    lines:
-      - vrrp {{item}} priority 110
-    parents: interface vlan{{item}}
+  ansible.builtin.debug:
+    msg: "{{ item }}"
   loop: "{{  STP_root | map(attribute='root_vlan') | string | split(',') }}"
   when: inventory_hostname == outer_item.device
