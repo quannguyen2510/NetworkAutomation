@@ -27,3 +27,9 @@ default_gateway: ".3"
 dns_server: "8.8.8.8"
 ip_excluded: { start: ".1" , end : ".30" }
 
+#VRRP
+VRRP :
+  - { device: "CoreSw1", root_vlan: "10,30,60", secondary_vlan: "20,40"}
+  - { device: "CoreSw2", root_vlan: "20,40", secondary_vlan: "10,30,60"}
+
+
