@@ -11,4 +11,5 @@
 
 - include_tasks: inner.yml
   loop: "{{STP_root}}"
-  when: inventory_hostname == item.device
+  loop_control:
+    loop_var: outer_item
