@@ -15,4 +15,4 @@
       - vrrp {{item.vlan}} priority 110
     parents: interface vlan{{item.vlan}}
   loop: "{{ VRRP }}"
-  when: inventory_hostname == VRRP.device
+  when: inventory_hostname == item.device
