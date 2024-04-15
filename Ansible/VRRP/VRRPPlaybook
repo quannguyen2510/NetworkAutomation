@@ -1,5 +1,5 @@
 ---
-- name: spanning-tree Config
+- name: VRRP Config Config
   hosts: CoreSwitches
   gather_facts: false
 
